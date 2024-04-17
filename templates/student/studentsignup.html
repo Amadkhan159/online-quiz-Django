@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+{% load widget_tweaks %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <style>
+
+        form{
+           margin: 50px; 
+          
+        }
+
+    </style>
+  </head>
+  <body>
+    {% include "quiz/navbar.html" %}
+ 
+
+
+<br><br><br>
+<h3 style="text-align: center;color: red;">STUDENT SIGNUP</h3>
+<form method="POST" autocomplete="off" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="username">Username</label>
+        {% render_field userForm.username|attr:'required:true'  class="form-control" placeholder="username" %}
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">Password</label>
+        {% render_field userForm.password|attr:'required:true'  class="form-control" placeholder="password" %}
+      </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="first_name">First Name</label>
+          {% render_field userForm.first_name|attr:'required:true'  class="form-control" placeholder="John " %}
+        </div>
+        <div class="form-group col-md-6">
+          <label for="last_name">Last Name </label>
+          {% render_field userForm.last_name|attr:'required:true'  class="form-control" placeholder="Carter" %}
+        </div>
+      </div>
+
+     
+
+
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="Level Of Study">level of study</label>
+          {% render_field studentForm.mobile|attr:'required:true'  class="form-control" placeholder="Bachelor" %}
+        </div>
+        <div class="form-group col-md-6">
+          <label for="School Name">University name</label>
+          {% render_field studentForm.address|attr:'required:true'  class="form-control" placeholder="Brigton" %}
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="dob">Date Of Birth</label>
+          <input type="text" id="dob" name="dob" size="90"  placeholder="e.g. 4 Mar 2006" />
+        </div>
+        <div class="form-group col-md-6">
+          <label for="Email">Email Address </label>
+          <input type="text" id="Email" name="Email" size="90"  placeholder="abc @gmail" />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="profile_pic">Profile Picture</label>
+          {% render_field studentForm.profile_pic|attr:'required:true' class="form-control" placeholder="" %}
+        </div>
+        
+      </div>
+
+      
+
+
+    <button type="submit" class="btn btn-primary">Sign Up</button>
+  </form>
+
+
+<br><br>
+{% include "quiz/footer.html" %}
+  </body>
+</html>
